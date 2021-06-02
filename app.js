@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const mongoose = require('mongoose');
 
 const video_routes = require('./routes/video');
@@ -13,7 +14,7 @@ mongoose.connect(db_url, { useNewUrlParser: true, useCreateIndex: true, useUnifi
 
 // middleware
 app.use(express.json());
-
+app.use(cors());
 app.use('/api', video_routes)
 
 
